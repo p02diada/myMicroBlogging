@@ -1,0 +1,29 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Mis menciones</h1>
+{% endblock%}
+
+{% block cuerpo %}
+
+{%for u in resultado%}
+
+	     <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="card light-blue lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Micro post escrito por {{u.usuario.username}} el {{u.fecha}}:</span>
+              <p>{{u.contenido}}.</p>
+            </div>
+            <div class="card-action">
+					<a class="btn" href="/app/repostear/{{u.pk}}"/><i class="mdi-av-repeat"></i> </a>
+					<a class="btn" href="/app/anyadirFavorito/{{u.pk}}"/><i class="mdi-action-grade"></i> </a>	
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+{%endfor%}
+
+{% endblock %}

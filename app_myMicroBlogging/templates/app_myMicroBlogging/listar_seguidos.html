@@ -1,0 +1,18 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Listado de tus Seguidos</h1>
+{% endblock%}
+
+
+{% block cuerpo %}
+
+	{% for mis_seguidos in listaSeguidos %}
+	<a href="/app/verPerfil/{{mis_seguidos.pk}}">
+	<button type="button" class="btn btn-success">{{mis_seguidos.username}}</button>	
+    </a>
+    <hr>
+	{%endfor%}
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Listas de Usuarios</h1>
+{% endblock%}
+
+{% block cuerpo %}
+
+	 <a href="/app/crearLista/">
+	<button type="button" class="btn btn-primary">Crear nueva lista</button>
+	</a>
+	<hr>
+
+
+
+	{% for lista in Listas %}
+
+
+	   <a class="btn" href="/app/mostrarLista/{{lista.pk}}"/>{{lista.nombre}} </a>
+   
+	<a class="btn" href="/app/eliminarLista/{{lista.pk}}"/><i class="mdi-action-delete"></i> </a>
+
+<hr>
+
+	{%endfor%}
+
+
+{% endblock %}

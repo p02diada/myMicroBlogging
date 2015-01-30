@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+{% load staticfiles %}
+
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+      <link href="/static/css/materialize.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+<header>
+
+      
+      <nav class="light-blue lighten-1" role="navigation">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a class="page-title">
+              myMicroBlogging
+            </a>
+
+          <ul id="nav-izq" class="right side-nav">
+          {% block navSup %}
+
+          {%endblock%}
+          </ul>
+          
+          <a href="/app/home/" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+          
+
+
+
+
+            
+          </div>
+        </div>
+
+      </nav>
+    
+
+
+
+
+
+      <div class="container">
+      <!--
+      <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a></div>
+      -->
+      <ul id="nav-mobile" class="side-nav fixed">
+       {% block navIzq %}
+
+       {%endblock%}
+      
+        <!--
+        <li class="no-padding">
+         
+          
+          <ul class="collapsible collapsible-accordion">
+            
+            <li class="bold"><a class="collapsible-header">JavaScript</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="collapsible.html">Collapsible</a></li>
+                </ul>
+              </div>
+            </li>
+            
+
+          </ul>
+        
+        </li>
+        -->
+      </ul>
+</header>
+
+
+    <main>
+      <div class="container bsa">
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div id="right" class="section scrollspy">
+              <h2 class="header">
+                {% block titulo %}
+                {%endblock%}
+
+                {% block cuerpo %}
+                {%endblock%}
+
+                 
+
+              </h2>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    {% block btn_flotante%}
+    {%endblock%}
+
+
+    </main>
+
+    <footer class="page-footer light-blue lighten-1">
+      <div class="footer-copyright">
+        <div class="container">
+          2014, All right reserved.
+        </div>
+        
+      </div>
+
+    </footer>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <script src="/static/js/init.js"></script>
+    
+    
+    <!--
+    <div class="drag-target" style="width: 50%; right: 0px;"></div>
+    <div id="sidenav-overlay" style="opacity: 1;"></div>
+  -->
+
+  </body>
+
+
+</html>

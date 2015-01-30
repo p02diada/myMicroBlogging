@@ -1,0 +1,14 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Nueva Lista</h1>
+{% endblock%}
+
+
+{% block cuerpo %}
+	<form id = 'form' method='post' enctype='multipart/form-data' action=''> {%csrf_token %}
+		 {{form.as_p}}
+			<p><input type='submit' value='Guardar'></p>
+	</form>
+
+{% endblock %}

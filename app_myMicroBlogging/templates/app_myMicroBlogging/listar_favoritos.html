@@ -1,0 +1,49 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Tablón de favoritos</h1>
+{% endblock%}
+
+{% block cuerpo %}
+
+
+	{% for favorito in listaFavoritos %}
+
+	     <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="card light-blue lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Micro post escrito por {{favorito.micro_post.usuario}} el {{favorito.micro_post.fecha}}:</span>
+              <p>{{favorito.micro_post.contenido}}.</p>
+            </div>
+            <div class="card-action">
+					<a class="btn" href="/app/repostear/{{mensaje.pk}}"/><i class="mdi-av-repeat"></i> </a>
+					<a class="btn" href="/app/anyadirFavorito/{{mensaje.pk}}"/><i class="mdi-action-grade"></i> </a>	
+            </div>
+          </div>
+        </div>
+      </div>
+	<!--
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h6 class="panel-heading">
+	Micro post escrito por {{favorito.micro_post.usuario}} el {{favorito.micro_post.fecha}}:
+				</h6>
+
+		</div>
+
+	<div class="panel-body">
+	<h4>{{favorito.micro_post.contenido}}</h4>
+
+	<a href="/app/eliminarFavoritos/{{favorito.pk}}/">
+	<button type="button" class="btn btn-danger">Eliminar de favoritos</button>
+    </a>
+
+    </div>	
+</div>-->
+    
+
+	{%endfor%}
+
+
+{% endblock %}

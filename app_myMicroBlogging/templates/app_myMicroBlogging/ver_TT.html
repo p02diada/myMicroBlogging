@@ -1,0 +1,16 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Trending Topics</h1>
+{% endblock%}
+
+{% block cuerpo %}
+{% for hash in hashtags %}
+
+
+<a href="/app/verMicroPostTT/{{hash.pk}}">
+<button type="button" class="btn btn-info">#{{hash.nombre}}</button>
+</a>
+<hr>
+{% endfor %}
+{%endblock%}

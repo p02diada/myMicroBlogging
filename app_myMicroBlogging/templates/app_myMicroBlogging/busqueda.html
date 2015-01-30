@@ -1,0 +1,85 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Resultados de la Búsqueda</h1>
+{% endblock%}
+
+{% block cuerpo %}
+
+
+
+
+
+{% if TT %}
+
+
+{%for u in resultado%}
+<a href="/app/verMicroPostTT/{{u.pk}}">
+
+<button type="button" class="btn btn-info">#{{u.nombre}}</button>
+<a>
+	<hr>
+{%endfor%}
+
+
+
+{% elif mencion %}
+
+
+{%for u in resultado%}
+	     <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="card light-blue lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Micro post escrito por {{u.usuario.username}} el {{u.fecha}}:</span>
+              <p>{{u.contenido}}.</p>
+            </div>
+            <div class="card-action">
+					<a class="btn" href="/app/repostear/{{u.pk}}"/><i class="mdi-av-repeat"></i> </a>
+					<a class="btn" href="/app/anyadirFavorito/{{u.pk}}"/><i class="mdi-action-grade"></i> </a>	
+            </div>
+          </div>
+        </div>
+      </div>
+{%endfor%}
+
+
+
+
+{% else %}
+
+{%for u in resultado%}
+
+	     <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="card light-blue lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Nick de usuario: {{u.username}}</span>
+              <p>Nombre: {{u.first_name}}</p>
+              <p>Apellidos: {{u.last_name}}</p>
+            </div>
+            <div class="card-action">
+					<a class="btn" href="/app/verPerfil/{{u.pk}}"/>Ver perfil </a>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+{%endfor%}
+
+
+
+
+{%endif%}
+
+{% endblock %}
+
+
+
+
+

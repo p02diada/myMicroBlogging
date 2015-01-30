@@ -1,0 +1,92 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Perfil</h1>
+{% endblock%}
+
+
+{% block cuerpo %}
+
+
+       <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="card green lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Nick de usuario: {{usuario.username}}</span>
+              <p>Nombre: {{usuario.first_name}}</p>
+              <p>Apellidos: {{usuario.last_name}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+<div class="btn-group">
+  <button type="button" class="btn btn-default">{{numMicroPost}} Micro Post</button>
+  <a href="/app/verSeguidos/{{usuario.pk}}/"
+  <button type="button" class="btn btn-default">{{numSegui}} Seguidos</button>
+</a>
+<a href="/app/verSeguidores/{{usuario.pk}}/"
+  <button type="button" class="btn btn-default">{{numSeguidores}} Seguidores</button>
+ </a>
+</div>
+<hr>
+
+<a href="/app/anyadirSeguidos/{{usuario.pk}}">
+	<button type="button" class="btn btn-success">Seguir</button>
+</a>
+<a href="/app/quitarSeguidos/{{usuario.pk}}">
+	<button type="button" class="btn btn-success">Dejar de Seguir</button>
+</a>
+
+<a href="/app/elegirLista/{{usuario.pk}}">
+	<button type="button" class="btn btn-success">Añadir a lista</button>
+</a>
+
+
+
+
+
+
+
+<hr>
+{%for mensaje in micro %}
+
+	     <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="card light-blue lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Micro post escrito por {{mensaje.usuario.username}} el {{mensaje.fecha}}:</span>
+              <p>{{mensaje.contenido}}.</p>
+            </div>
+            <div class="card-action">
+					<a class="btn" href="/app/repostear/{{mensaje.pk}}"/><i class="mdi-av-repeat"></i> </a>
+					<a class="btn" href="/app/anyadirFavorito/{{mensaje.pk}}"/><i class="mdi-action-grade"></i> </a>	
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h6 class="panel-heading">
+	Micro post escrito por {{mensaje.usuario.username}} el {{mensaje.fecha}}:</h6>
+
+		</div>
+		<div class="panel-body">
+	<h3>{{mensaje.contenido}}</h3>
+	<a href="/app/repostear/{{mensaje.pk}}">
+	<button type="button" class="btn btn-primary">Repostear</button>
+    </a>
+
+    <a href="/app/anyadirFavorito/{{mensaje.pk}}">
+	<button type="button" class="btn btn-primary">Favorito</button>
+    </a>
+</div>
+</div>
+    
+<hr>-->
+{%endfor%}
+
+
+{% endblock %}

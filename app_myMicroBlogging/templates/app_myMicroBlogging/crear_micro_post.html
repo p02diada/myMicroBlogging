@@ -1,0 +1,20 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Nuevo MicroPost</h1>
+{% endblock%}
+
+
+{% block cuerpo %}
+	<form id = 'form' method='post' enctype='multipart/form-data' action=''> {%csrf_token %}
+		 {{form.as_p}}
+			<!--<p><input type='submit' value='Guardar'></p>-->
+				
+			  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    			<i class="mdi-content-send right"></i>
+  			  </button>
+  			  <br>
+	</form>
+
+{% endblock %}
+

@@ -1,0 +1,20 @@
+{% extends "app_myMicroBlogging/home.html"%}
+
+{% block titulo %}
+<h1 class="page-header">Listas de Usuarios</h1>
+{% endblock%}
+
+{% block cuerpo %}
+
+
+	{% for lista in Listas %}
+	<a href="/app/anyadirUsuarioLista/{{lista.pk}}/{{usuarioParaLista.pk}}">
+	<button type="button" class="btn btn-info">{{lista.nombre}}</button>
+    </a>
+    
+<hr>
+
+	{%endfor%}
+
+
+{% endblock %}
